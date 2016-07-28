@@ -35,7 +35,7 @@ app.get('/health', function(req, res, next) {
   res.end();
 });
 
-server.listen(port, ip || 'localhost', function () {
+server.listen(port, ip, function () {
   console.log( "Listening on " + ip + ", server_port " + port )
   console.log('Application worker ${process.pid} started...');
   console.log('node mode ' + env.NODE_ENV);
