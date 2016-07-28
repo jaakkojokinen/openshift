@@ -14,10 +14,10 @@ var env = process.env;
  */
 
 console.log('mode is ' + env.DEV_MODE);
-var port = normalizePort(env.NODE_PORT || 3000);
+var port = normalizePort(env.OPENSHIFT_NODEJS_PORT || 8080);
 app.set('port', port);
 
-var ip = env.NODE_IP;
+var ip = env.OPENSHIFT_NODEJS_IP;
 
 console.log('node port is ' + port);
 console.log('node ip is ' + ip);
