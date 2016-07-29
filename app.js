@@ -15,6 +15,8 @@ var bcrypt = require('bcryptjs');
 var mongo = require('mongodb');
 var mongoose = require('mongoose');
 var db = mongoose.connection;
+    
+
 
 var routes = require('./routes/index');
 var users = require('./routes/users');

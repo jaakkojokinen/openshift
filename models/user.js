@@ -1,7 +1,11 @@
 var mongoose = require('mongoose');
+mongoose.Promise = global.Promise;
 var bcrypt = require('bcryptjs');
 
-mongoose.connect('mongodb://'+process.env.OPENSHIFT_MONGODB_DB_HOST+':'+process.env.OPENSHIFT_MONGODB_DB_PORT+'/');
+var env = process.env;
+
+mongoose.connect('mongodb://' + env.OPENSHIFT_MONGODB_DB_HOST + 
+	':' + env.OPENSHIFT_MONGODB_DB_PORT+'/');
 
 var db = mongoose.connection;
 
@@ -33,6 +37,7 @@ module.exports.getUserById = function(id, callback){
 
 module.exports.getUserByUsername = function(username, callback){
 	var query = {username: username};
+	assert.equal(query.exec().constructor, global.Promise);
 	console.log(query);
 	User.findOne(query, callback);
 }
