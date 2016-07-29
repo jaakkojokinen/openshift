@@ -4,12 +4,13 @@ mongoose.Promise = require('bluebird');
 var bcrypt = require('bcryptjs');
 var env = process.env;
 
-var uri = 'mongodb://'+env.OPENSHIFT_MONGODB_DB_HOST+':'+env.OPENSHIFT_MONGODB_DB_PORT+'/'+env.OPENSHIFT_APP_NAME;
+var uri = 'mongodb://'+env.OPENSHIFT_nodeplan_DB_USERNAME+':'
++env.OPENSHIFT_nodeplan_DB_PASSWORD+'@'+env.OPENSHIFT_MONGODB_DB_HOST+':'
++env.OPENSHIFT_MONGODB_DB_PORT+'/'+env.OPENSHIFT_APP_NAME;
+
 var options = { promiseLibrary: require('bluebird') };
 console.log(uri);
 var db = mongoose.createConnection(uri, options);
-
-console.log("var db = " + db);
 
 // USer Schema
 var UserSchema = mongoose.Schema({
