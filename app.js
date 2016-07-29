@@ -15,22 +15,20 @@ var bcrypt = require('bcryptjs');
 var mongo = require('mongodb');
 var mongoose = require('mongoose');
 var db = mongoose.connection;
-    
-
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
 
 var app = express();
 
-console.log(require("express/package").version);
+console.log("express version: "+require("express/package").version);
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 console.log(__dirname, 'views');
 app.set('view engine', 'pug');
 
-console.log(require("pug/package").version);
+console.log("pug version: "+require("pug/package").version);
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));

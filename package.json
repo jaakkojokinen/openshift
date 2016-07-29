@@ -19,6 +19,7 @@
     "pug": "2.0.0-beta4",
     "mongodb": "*",
     "mongoose": "*",
+    "promise-mongo": "*",
     "morgan": "~1.6.1",
     "multer": "*",
     "passport": "*",
