@@ -1,10 +1,16 @@
 var mongoose = require('mongoose');
-mongoose.Promise = global.Promise;
+var Promise = require('bluebird');
+mongoose.Promise = require('bluebird');
 var bcrypt = require('bcryptjs');
 
-mongoose.connect('mongodb://'+process.env.OPENSHIFT_MONGODB_DB_HOST+':'+process.env.OPENSHIFT_MONGODB_DB_PORT+'/');
+//mongoose.connect();
 
-var db = mongoose.connection;
+var uri = 'mongodb://'+process.env.OPENSHIFT_MONGODB_DB_HOST+':'+process.env.OPENSHIFT_MONGODB_DB_PORT+'/';
+var options = { promiseLibrary: require('bluebird') };
+
+var db = mongoose.createConnection(uri, options);
+
+console.log("var db = " + db);
 
 // USer Schema
 var UserSchema = mongoose.Schema({
@@ -26,7 +32,7 @@ var UserSchema = mongoose.Schema({
 	}
 });
 
-var User = module.exports = mongoose.model('User', UserSchema);
+var User = module.exports = db.model('User', UserSchema);
 
 module.exports.getUserById = function(id, callback){
 	User.findById(id, callback);
@@ -34,7 +40,7 @@ module.exports.getUserById = function(id, callback){
 
 module.exports.getUserByUsername = function(username, callback){
 	var query = {username: username};
-	assert.equal(query.exec().constructor, global.Promise);
+	assert.equal(query.exec().constructor, require('bluebird'));
 	console.log(query);
 	User.findOne(query, callback);
 }
