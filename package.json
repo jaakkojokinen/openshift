@@ -1,5 +1,5 @@
 {
-  "name": "nodeover",
+  "name": "nodeplan",
   "description": "Custom Node.js cartridge for OpenShift",
   "private": true,
   "main": "bin/www",

@@ -1,5 +1,5 @@
 var express = require('express');
-var router = express.Router();
+var router = express.Router({strict: true});
 var multer = require('multer');
 var upload = multer({dest: './uploads'});
 var passport = require('passport');

@@ -1,5 +1,5 @@
 var express = require('express');
-var router = express.Router();
+var router = express.Router({strict: true});
 
 console.log('8. index.js router get');
 
