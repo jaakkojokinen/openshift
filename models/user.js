@@ -2,9 +2,7 @@ var mongoose = require('mongoose');
 mongoose.Promise = global.Promise;
 var bcrypt = require('bcryptjs');
 
-var env = process.env;
-
-mongoose.connect('mongodb://' + env.OPENSHIFT_MONGODB_DB_HOST + ':' + env.OPENSHIFT_MONGODB_DB_PORT+'/');
+mongoose.connect('mongodb://'+process.env.OPENSHIFT_MONGODB_DB_HOST+':'+process.env.OPENSHIFT_MONGODB_DB_PORT+'/');
 
 var db = mongoose.connection;
 
