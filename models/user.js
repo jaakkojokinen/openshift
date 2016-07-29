@@ -2,10 +2,11 @@ var mongoose = require('mongoose');
 var Promise = require('bluebird');
 mongoose.Promise = require('bluebird');
 var bcrypt = require('bcryptjs');
+
 var env = process.env;
 
-var uri = 'mongodb://'+env.OPENSHIFT_nodeplan_DB_USERNAME+':'
-+env.OPENSHIFT_nodeplan_DB_PASSWORD+'@'+env.OPENSHIFT_MONGODB_DB_HOST+':'
+var uri = 'mongodb://'+env.OPENSHIFT_MONGODB_DB_USERNAME+':'
++env.OPENSHIFT_MONGODB_DB_PASSWORD+'@'+env.OPENSHIFT_MONGODB_DB_HOST+':'
 +env.OPENSHIFT_MONGODB_DB_PORT+'/'+env.OPENSHIFT_APP_NAME;
 
 var options = { promiseLibrary: require('bluebird') };
