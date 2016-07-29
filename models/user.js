@@ -2,12 +2,11 @@ var mongoose = require('mongoose');
 var Promise = require('bluebird');
 mongoose.Promise = require('bluebird');
 var bcrypt = require('bcryptjs');
+var env = process.env;
 
-//mongoose.connect();
-
-var uri = 'mongodb://'+process.env.OPENSHIFT_MONGODB_DB_HOST+':'+process.env.OPENSHIFT_MONGODB_DB_PORT+'/';
+var uri = 'mongodb://'+env.OPENSHIFT_MONGODB_DB_HOST+':'+env.OPENSHIFT_MONGODB_DB_PORT+'/';
 var options = { promiseLibrary: require('bluebird') };
-
+console.log(uri);
 var db = mongoose.createConnection(uri, options);
 
 console.log("var db = " + db);
