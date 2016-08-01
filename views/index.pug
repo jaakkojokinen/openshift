@@ -5,18 +5,10 @@ block content
   p Welcome to the members area
   #map
   script.
-   var berlin = new google.maps.LatLng(52.520816, 13.410186);
-   var neighborhoods = [
-   new google.maps.LatLng(52.511467, 13.447179),
-   new google.maps.LatLng(52.549061, 13.422975),
-   new google.maps.LatLng(52.497622, 13.396110),
-   new google.maps.LatLng(52.517683, 13.394393)
-   ];
-   var markers = [];
-   var iterator = 0;
-   var map;
-   function initialize() {
-   var mapOptions = {
-   zoom: 12,
-   center: berlin
-   };
+   function initMap() {
+   var mapDiv = document.getElementById('map');
+   var map = new google.maps.Map(mapDiv, {
+   center: {lat: 44.540, lng: -78.546},
+   zoom: 8
+   });
+   }
