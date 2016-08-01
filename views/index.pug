@@ -6,29 +6,29 @@ block content
   #map
   script.
    function initMap() {
-   var mapDiv = document.getElementById('map');
-   var map = new google.maps.Map(mapDiv, {
-   center: {lat: 60.157, lng: 24.947},
-   zoom: 14
+    var mapDiv = document.getElementById('map');
+    var map = new google.maps.Map(mapDiv, {
+     center: {lat: 60.157, lng: 24.947},
+     zoom: 14
    });
    var userLocations = [
-   ['pizzaa', 60.156, 24.930, 4],
-   ['random vihanneksia', 60.256, 24.530, 3],
-   ['keittoo', 60.116, 24.730, 2],
-   ['lasagne', 60.206, 24.309]
+    ['pizzaa', 60.156, 24.930, 4],
+    ['random vihanneksia', 60.256, 24.530, 3],
+    ['keittoo', 60.116, 24.730, 2],
+    ['lasagne', 60.206, 24.309]
    ];
    var infowindow = new google.maps.InfoWindow();
    var marker, i;
    for (i=0; i<userLocations.length; i++){
-   marker=new google.maps.Marker({
-   position: new google.maps.LatLng(userLocations[i][1], userLocations[i][2]),
-   map: map
+    marker=new google.maps.Marker({
+    position: new google.maps.LatLng(userLocations[i][1], userLocations[i][2]),
+    map: map
    });
    google.maps.event.addListener(marker, 'click', (function(marker, i) {
-   return function() {
-   infowindow.setContent(locations[i][0]);
-   infowindow.open(map, marker);
-   }
+    return function() {
+    infowindow.setContent(userLocations[i][0]);
+    infowindow.open(map, marker);
+    }
    })(marker, i));
    }
    }
