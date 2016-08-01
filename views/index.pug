@@ -17,12 +17,18 @@ block content
    ['keittoo', 60.116, 24.730, 2],
    ['lasagne', 60.206, 24.309]
    ];
-
+   var infowindow = new google.maps.InfoWindow();
    var marker, i;
    for (i=0; i<userLocations.length; i++){
    marker=new google.maps.Marker({
    position: new google.maps.LatLng(userLocations[i][1], userLocations[i][2]),
    map: map
    });
+   google.maps.event.addListener(marker, 'click', (function(marker, i) {
+   return function() {
+   infowindow.setContent(locations[i][0]);
+   infowindow.open(map, marker);
+   }
+   })(marker, i));
    }
    }
