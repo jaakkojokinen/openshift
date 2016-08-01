@@ -21,7 +21,7 @@ block content
    var marker, i;
    for (i=0; i<userLocations.length; i++){
    marker=new google.maps.Marker({
-   position: new google.maps.LatLng(locations[i][1], locations[i][2]),
+   position: new google.maps.LatLng(userLocations[i][1], userLocations[i][2]),
    map: map
    });
    }
