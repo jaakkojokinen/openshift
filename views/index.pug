@@ -26,8 +26,8 @@ block content
    });
    google.maps.event.addListener(marker, 'click', (function(marker, i) {
     return function() {
-    infowindow.setContent(userLocations[i][0]);
-    infowindow.open(map, marker);
+     infowindow.setContent(userLocations[i][0]);
+     infowindow.open(map, marker);
     }
    })(marker, i));
    }
