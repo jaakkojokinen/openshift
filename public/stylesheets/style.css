@@ -5,3 +5,8 @@ form {
 input {
 	max-width: 300px;
 }
+
+#map {
+	width: 100%;
+	height: 400px;
+}
