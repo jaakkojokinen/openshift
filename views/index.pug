@@ -9,11 +9,20 @@ block content
    var mapDiv = document.getElementById('map');
    var map = new google.maps.Map(mapDiv, {
    center: {lat: 60.157, lng: 24.947},
-   zoom: 28
+   zoom: 14
    });
-   var userLocation = new google.maps.LatLng(60.156, 24.930);
-   var marker=new google.maps.Marker({
-   position:userLocation,
+   var userLocations = [
+   ['pizzaa', 60.156, 24.930, 4],
+   ['random vihanneksia', 60.256, 24.530, 3],
+   ['keittoo', 60.116, 24.730, 2],
+   ['lasagne', 60.206, 24.309]
+   ];
+
+   var marker, i;
+   for (i=0; i<userLocations.length; i++){
+   marker=new google.maps.Marker({
+   position: new google.maps.LatLng(locations[i][1], locations[i][2]),
+   map: map
    });
-   marker.setMap(map);
+   }
    }
