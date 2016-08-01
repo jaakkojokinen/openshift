@@ -9,6 +9,11 @@ block content
    var mapDiv = document.getElementById('map');
    var map = new google.maps.Map(mapDiv, {
    center: {lat: 60.157, lng: 24.947},
-   zoom: 8
+   zoom: 28
    });
+   var userLocation = new google.maps.LatLng(60.156, 24.930);
+   var marker=new google.maps.Marker({
+   position:userLocation,
+   });
+   marker.setMap(map);
    }
