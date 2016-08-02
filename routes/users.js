@@ -114,7 +114,6 @@ router.post('/register', upload.single('profileimage'), function(req, res, next)
 
 router.get('/users/profile/:username', function(req, res, next) {
 	res.render('profile', {title:'Profile'});
-	res.redirect('/');
 });
 
 router.get('/logout', function(req,res){
