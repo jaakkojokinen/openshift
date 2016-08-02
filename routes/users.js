@@ -22,6 +22,10 @@ router.get('/login', function(req, res, next) {
   res.render('login', {title:'Login'});
 });
 
+router.get('/profile', function(req, res, next) {
+	res.render('profile', {title:'Profile'});
+});
+
 router.post('/login',
 	passport.authenticate('local', {failureRedirect:'/users/login', 
 		failureFlash: 'Invalid username and password'}),

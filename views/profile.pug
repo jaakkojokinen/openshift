@@ -3,6 +3,6 @@ extends layout
 block content
 	h2 profile
 	if users
-		each user, i in users
+		each user in users
 			.user
 				p #{username.username}
