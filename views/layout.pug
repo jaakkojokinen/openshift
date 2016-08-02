@@ -17,8 +17,8 @@ html(lang='en')
 			.navbar-collapse.collapse
 				ul.nav.navbar-nav
 					if user
-						li(class=(title == 'Members' ? 'active' : ''))
-							a(href='/') Members
+						li(class=(title == 'Feed me' ? 'active' : ''))
+							a(href='/') Feed me
 					if !user	
 						li(class=(title == 'Register' ? 'active' : ''))
 							a(href='/users/register') Register
