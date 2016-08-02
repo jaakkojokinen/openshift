@@ -22,10 +22,6 @@ router.get('/login', function(req, res, next) {
   res.render('login', {title:'Login'});
 });
 
-router.get('/profile', function(req, res, next) {
-	res.render('profile', {title:'Profile'});
-});
-
 router.post('/login',
 	passport.authenticate('local', {failureRedirect:'/users/login', 
 		failureFlash: 'Invalid username and password'}),
@@ -114,6 +110,11 @@ router.post('/register', upload.single('profileimage'), function(req, res, next)
 		res.redirect('/');
 	}
 
+});
+
+router.get('/users/profile/:username', function(req, res, next) {
+	res.render('profile', {title:'Profile'});
+	res.redirect('/');
 });
 
 router.get('/logout', function(req,res){
