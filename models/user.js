@@ -4,11 +4,13 @@ mongoose.Promise = require('bluebird');
 var bcrypt = require('bcryptjs');
 
 var env = process.env;
-var os_mongo = OPENSHIFT_MONGODB_DB;
+var username = env.OPENSHIFT_MONGODB_DB_USERNAME;
+var password = env.OPENSHIFT_MONGODB_DB_PASSWORD;
+var host = env.OPENSHIFT_MONGODB_DB_HOST;
+var port = env.OPENSHIFT_MONGODB_DB_PORT;
+var appname = env.OPENSHIFT_APP_NAME;
 
-var url = 'mongodb://'+env.os_mongo_USERNAME+':'
-+env.os_mongo_PASSWORD+'@'+env.os_mongo_HOST+':'
-+env.os_mongo_PORT+'/'+env.OPENSHIFT_APP_NAME;
+var url = 'mongodb://'+username+':'+password+'@'+host+':'+port+'/'+appname;
 
 var options = { promiseLibrary: require('bluebird') };
 console.log(url);
