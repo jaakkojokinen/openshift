@@ -14,14 +14,6 @@ router.get('/', function(req, res, next) {
   res.send('respond with a resource');
 });
 
-router.get('/', function(req, res){
-	User.find({}, {}, function(e, users){
-		res.render('index', {
-			"index" : users
-		});
-	});
-});
-
 router.get('/register', function(req, res, next) {
   res.render('register', {title:'Register'});
 });
@@ -34,15 +26,15 @@ router.post('/login',
 	passport.authenticate('local', {failureRedirect:'/users/login', 
 		failureFlash: 'Invalid username and password'}),
 	function(req, res) {
-		req.flash('success', 'Welcome');
+		var user = User.getUserByUsername(username, function(err, user) {
+			if(err) throw err;
+			if (user) {
+				return done(null, user);
+			}
+		});
+		console.log('user= ' + user);
+		req.flash('success', 'Welcome' + user);
 		res.redirect('/');
-});
-
-// get all users
-router.get('/', function(req, res, next) {
-	userMap = User.allUsers();
-	console.log('userMap= ' + userMap);
-	res.render('index', {user:userMap});
 });
 
 passport.serializeUser(function(user, done) {
