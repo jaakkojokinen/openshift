@@ -14,6 +14,16 @@ router.get('/', function(req, res, next) {
   res.send('respond with a resource');
 });
 
+router.get('/index', function(req, res){
+	var db = req.db;
+	var collection = db.get('users');
+	collection.find({}, {}, function(e, docs){
+		res.render('index', {
+			"index" : docs
+		});
+	});
+});
+
 router.get('/register', function(req, res, next) {
   res.render('register', {title:'Register'});
 });
@@ -30,10 +40,12 @@ router.post('/login',
 		res.redirect('/');
 });
 
+// get all users
 router.get('/', function(req, res, next) {
 	userMap = User.allUsers();
+	console.log('userMap= ' + userMap);
 	res.render('index', {user:userMap});
-})
+});
 
 passport.serializeUser(function(user, done) {
   done(null, user.id);

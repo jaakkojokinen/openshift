@@ -4,12 +4,12 @@ mongoose.Promise = require('bluebird');
 var bcrypt = require('bcryptjs');
 
 // Openshift environmental variables
-var env = process.env;
-var username = env.OPENSHIFT_MONGODB_DB_USERNAME;
-var password = env.OPENSHIFT_MONGODB_DB_PASSWORD;
-var host = env.OPENSHIFT_MONGODB_DB_HOST;
-var port = env.OPENSHIFT_MONGODB_DB_PORT;
-var appname = env.OPENSHIFT_APP_NAME;
+var env = process.env
+	, username = env.OPENSHIFT_MONGODB_DB_USERNAME
+	, password = env.OPENSHIFT_MONGODB_DB_PASSWORD
+	, host = env.OPENSHIFT_MONGODB_DB_HOST
+	, port = env.OPENSHIFT_MONGODB_DB_PORT
+	, appname = env.OPENSHIFT_APP_NAME;
 
 var url = 'mongodb://'+username+':'+password+'@'+host+':'+port+'/'+appname;
 
