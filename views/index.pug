@@ -4,8 +4,8 @@ block content
   h2 food available at the moment
     .section
       .side-bar
-        - for (var x = 0; x < 4; x++)
-          li user content 
+        each user, i in users
+          p #{user: name} 
       #map
         script.
           function initMap() {
