@@ -17,7 +17,7 @@ var options = { promiseLibrary: require('bluebird') };
 console.log(url);
 var db = mongoose.createConnection(url, options);
 
-// USer Schema
+// User Schema
 var UserSchema = mongoose.Schema({
 	username: {
 		type: String,
