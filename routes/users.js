@@ -15,10 +15,7 @@ router.get('/', function(req, res, next) {
 });
 
 router.get('/', function(req, res){
-	var db = req.db;
-	console.log(db);
-	var collection = db.get('users');
-	collection.find({}, {}, function(e, users){
+	User.find({}, {}, function(e, users){
 		res.render('index', {
 			"index" : users
 		});
