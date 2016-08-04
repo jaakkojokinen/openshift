@@ -14,12 +14,13 @@ router.get('/', function(req, res, next) {
   res.send('respond with a resource');
 });
 
-router.get('/index', function(req, res){
+router.get('/', function(req, res){
 	var db = req.db;
+	console.log(db);
 	var collection = db.get('users');
-	collection.find({}, {}, function(e, docs){
+	collection.find({}, {}, function(e, users){
 		res.render('index', {
-			"index" : docs
+			"index" : users
 		});
 	});
 });

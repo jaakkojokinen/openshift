@@ -4,9 +4,10 @@ block content
   h2 food available at the moment
     .section
       .side-bar
-        each user, i in users
-          p
-            =user.username
+        ul
+          each user, i in users
+            li
+              = user.username
       #map
         script.
           function initMap() {
