@@ -30,6 +30,11 @@ router.post('/login',
 		res.redirect('/');
 });
 
+router.get('/', function(req, res, next) {
+	userMap = User.allUsers();
+	res.render('index', {user:userMap});
+})
+
 passport.serializeUser(function(user, done) {
   done(null, user.id);
 });
@@ -113,11 +118,6 @@ router.post('/register', upload.single('profileimage'), function(req, res, next)
 		res.redirect('/');
 	}
 
-});
-
-User.find({}, function(err, docs){
-	if (err) return handleError(err);
-	console.log(user.username);
 });
 
 router.get('/logout', function(req,res){
