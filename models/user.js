@@ -3,6 +3,7 @@ var Promise = require('bluebird');
 mongoose.Promise = require('bluebird');
 var bcrypt = require('bcryptjs');
 
+// Openshift environmental variables
 var env = process.env;
 var username = env.OPENSHIFT_MONGODB_DB_USERNAME;
 var password = env.OPENSHIFT_MONGODB_DB_PASSWORD;
@@ -29,6 +30,9 @@ var UserSchema = mongoose.Schema({
 		type: String
 	},
 	name: {
+		type: String
+	},
+	address: {
 		type: String
 	},
 	profileimage: {

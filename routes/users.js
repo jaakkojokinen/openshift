@@ -61,6 +61,7 @@ passport.use(new LocalStrategy(function(username, password, done){
 router.post('/register', upload.single('profileimage'), function(req, res, next) {
 	var name = req.body.name;
 	var email = req.body.email;
+	var address = req.body.address;
 	var username = req.body.username;
 	var password = req.body.password;
 	var password2 = req.body.password2;
@@ -80,6 +81,7 @@ router.post('/register', upload.single('profileimage'), function(req, res, next)
 	req.checkBody('name', 'Name field is required').notEmpty();
 	req.checkBody('email', 'email field is required').notEmpty();
 	req.checkBody('email', 'Email not valid').notEmpty();
+	req.checkBody('address', 'address field is required').notEmpty();
 	req.checkBody('username', 'UserName field is required').notEmpty();
 	req.checkBody('password', 'Password field is required').notEmpty();
 	req.checkBody('password2', 'Passwords do not match').equals(req.body.password);
@@ -95,6 +97,7 @@ router.post('/register', upload.single('profileimage'), function(req, res, next)
 		var newUser = new User({
 			name: name,
 			email: email,
+			address: address,
 			username: username,
 			password: password,
 			profileimage: profileimage
@@ -110,10 +113,6 @@ router.post('/register', upload.single('profileimage'), function(req, res, next)
 		res.redirect('/');
 	}
 
-});
-
-router.get('/users/profile/:username', function(req, res) {
-	res.send(req.params);
 });
 
 router.get('/logout', function(req,res){
