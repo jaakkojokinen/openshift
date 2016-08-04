@@ -115,6 +115,11 @@ router.post('/register', upload.single('profileimage'), function(req, res, next)
 
 });
 
+User.find({}, function(err, docs){
+	if (err) return handleError(err);
+	console.log(user.username);
+});
+
 router.get('/logout', function(req,res){
 	req.logout();
 	req.flash('success', 'You are now logged out');
