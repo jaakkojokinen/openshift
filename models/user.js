@@ -49,7 +49,7 @@ module.exports.getUserById = function(id, callback){
 module.exports.getUserByUsername = function(username, callback){
 	var query = {username: username};
 	//assert.equal(query.exec().constructor, require('bluebird'));
-	console.log(query);
+	console.log('user signing in= ' + query);
 	User.findOne(query, callback);
 }
 
