@@ -30,6 +30,10 @@ router.post('/login',
 		res.redirect('/');
 });
 
+router.get('/userlist', function(req, res, next) {
+	res.render('userlist', {title:'Users'});
+});
+
 passport.serializeUser(function(user, done) {
   done(null, user.id);
 });

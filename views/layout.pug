@@ -19,6 +19,8 @@ html(lang='en')
 					if user
 						li(class=(title == 'Map' ? 'active' : ''))
 							a(href='/') Map
+						li(class=(title == 'Users' ? 'active' : ''))
+							a(href='/users/userlist') Users
 					if !user	
 						li(class=(title == 'Register' ? 'active' : ''))
 							a(href='/users/register') Register
