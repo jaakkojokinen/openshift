@@ -32,7 +32,7 @@ router.post('/login',
 
 router.get('/userlist', function(req, res, next) {
 	res.render('userlist', {title:'Users'});
-	res.redirect('/');
+	//res.redirect('/');
 });
 
 passport.serializeUser(function(user, done) {
