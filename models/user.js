@@ -3,7 +3,6 @@ var Promise = require('bluebird');
 mongoose.Promise = require('bluebird');
 var assert = require('assert');
 var bcrypt = require('bcryptjs');
-var database = require('monk')('localhost/nodeplan');
 
 // Openshift environmental variables
 var env = process.env
@@ -56,8 +55,8 @@ module.exports.getUserByUsername = function(username, callback){
 }
 
 module.exports.allUsers = function(req, res, next){
-	var database = req.database;
-	var users = database.get('users');
+	var db = req.db;
+	var users = db.get('users');
 	users.find({}, {}, function(err, users){
 		if (err) return handleError(err);
 		console.log(users);
