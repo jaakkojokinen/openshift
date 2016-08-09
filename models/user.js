@@ -54,11 +54,13 @@ module.exports.getUserByUsername = function(username, callback){
 	User.findOne(query, callback);
 }
 
-module.exports.allUsers = function(req, res, next){
-	var db = req.db;
-	var users = db.get('users');
-	users.find({}, {}, function(err, users){
-		if (err) return handleError(err);
+module.exports.allUsers = function(callback){
+	User.find({}, {}, function(err, users){
+		if (err) {
+			return handleError(err);
+		} else {
+			return users;
+		}
 		console.log(users);
 	});
 }
