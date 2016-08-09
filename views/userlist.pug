@@ -3,5 +3,6 @@ extends layout
 block content
 	h2 users
 	ul
-		each user in users
-			li= user
+		if users
+			each user in users
+				li= user.username
