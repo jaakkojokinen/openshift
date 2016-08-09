@@ -32,6 +32,7 @@ router.post('/login',
 
 router.get('/userlist', function(req, res, next) {
 	var users = User.allUsers();
+	console.log('router.get ' + users);
 	res.render('userlist', {title: users});
 });
 
