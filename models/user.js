@@ -3,7 +3,7 @@ var Promise = require('bluebird');
 mongoose.Promise = require('bluebird');
 var assert = require('assert');
 var bcrypt = require('bcryptjs');
-var db = require('monk')('localhost/nodeplan');
+var database = require('monk')('localhost/nodeplan');
 
 // Openshift environmental variables
 var env = process.env
