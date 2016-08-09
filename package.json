@@ -20,6 +20,7 @@
     "pug": "2.0.0-beta4",
     "mongodb": "*",
     "mongoose": "*",
+    "monk": "*",
     "bluebird": "*",
     "morgan": "~1.6.1",
     "multer": "*",
