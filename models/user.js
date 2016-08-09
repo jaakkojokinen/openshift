@@ -55,9 +55,9 @@ module.exports.getUserByUsername = function(username, callback){
 }
 
 module.exports.allUsers = function(){
-	User.find(function(err, users){
+	User.find(function(err, username){
 		if (err) return handleError(err);
-		console.log(users);
+		console.log(username);
 	});
 }
 
