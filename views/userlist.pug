@@ -2,6 +2,6 @@ extends layout
 
 block content
 	h2 users
-		ul
-			each user in users
-				li= user
+	ul
+		each user in #{users}
+			li= user
