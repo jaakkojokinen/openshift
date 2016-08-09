@@ -57,8 +57,8 @@ module.exports.getUserByUsername = function(username, callback){
 
 module.exports.allUsers = function(req, res, next){
 	var database = req.database;
-	var users = db.get('users');
-	User.find({}, {}, function(err, users){
+	var users = database.get('users');
+	users.find({}, {}, function(err, users){
 		if (err) return handleError(err);
 		console.log(users);
 	});
