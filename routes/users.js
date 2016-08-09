@@ -31,8 +31,8 @@ router.post('/login',
 });
 
 router.get('/userlist', function(req, res, next) {
-	User.allUsers();
-	res.render('userlist', {title:'users'});
+	var users = User.allUsers();
+	res.render('userlist', {title: users});
 });
 
 passport.serializeUser(function(user, done) {
