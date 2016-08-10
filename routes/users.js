@@ -30,19 +30,18 @@ router.post('/login',
 		res.redirect('/');
 });
 
-module.exports = function(router) {
-	router.get('/userlist', function(req, res) {
-		Book.find({}, function(err, users) {
-			if (err) {
-				console.log(err);
-			}
-			var model = {
-				users: users
-			}
-			res.render('userlist', model);
-		})
-	})
-}
+router.get('/userlist', function(req, res) {
+	Book.find({}, function(err, users) {
+		if (err) {
+			console.log(err);
+		}
+		var model = {
+			users: users
+		}
+		res.render('userlist', model);
+	});
+});
+
 
 passport.serializeUser(function(user, done) {
   done(null, user.id);
