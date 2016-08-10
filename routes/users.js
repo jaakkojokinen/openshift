@@ -30,11 +30,19 @@ router.post('/login',
 		res.redirect('/');
 });
 
-router.get('/userlist', function(req, res, next) {
-	var users = User.allUsers();
-	console.log('router.get ' + users);
-	res.render('userlist', {title: users});
-});
+module.exports = function(router) {
+	router.get('/userlist', function(req, res) {
+		Book.find({}, function(err, users) {
+			if (err) {
+				console.log(err);
+			}
+			var model = {
+				users: users
+			}
+			res.render('userlist', model);
+		})
+	})
+}
 
 passport.serializeUser(function(user, done) {
   done(null, user.id);

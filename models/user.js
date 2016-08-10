@@ -60,7 +60,6 @@ module.exports.allUsers = function(){
 		console.log(users);
 		return users;
 	});
-	console.log(users);
 }
 
 module.exports.comparePassword = function(candidatePassword, hash, callback){
