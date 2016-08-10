@@ -30,6 +30,7 @@ router.post('/login',
 		res.redirect('/');
 });
 
+// List all users 
 router.get('/userlist', function(req, res) {
 	User.find({}, function(err, users) {
 		if (err) {
@@ -37,11 +38,11 @@ router.get('/userlist', function(req, res) {
 		}
 		var model = {
 			users: users
+			address: address
 		}
 		res.render('userlist', model);
 	});
 });
-
 
 passport.serializeUser(function(user, done) {
   done(null, user.id);
