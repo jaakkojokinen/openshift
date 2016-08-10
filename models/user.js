@@ -55,12 +55,12 @@ module.exports.getUserByUsername = function(username, callback){
 }
 
 module.exports.allUsers = function(){
-	var users = [];
 	User.find({}, {}, function(err, users){
 		if (err) return handleError(err);
 		console.log(users);
 		return users;
 	});
+	console.log(users);
 }
 
 module.exports.comparePassword = function(candidatePassword, hash, callback){
