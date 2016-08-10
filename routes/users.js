@@ -38,7 +38,6 @@ router.get('/userlist', ensureAuthenticate, function(req, res) {
 		}
 		var model = {
 			users: users
-			users: address
 		}
 		res.render('userlist', model);
 	});
