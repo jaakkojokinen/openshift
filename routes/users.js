@@ -31,7 +31,7 @@ router.post('/login',
 });
 
 router.get('/userlist', function(req, res) {
-	Book.find({}, function(err, users) {
+	User.find({}, function(err, users) {
 		if (err) {
 			console.log(err);
 		}
