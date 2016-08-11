@@ -16,12 +16,10 @@ html(lang='en')
 				a.navbar-brand(href='#') overflow
 			.navbar-collapse.collapse
 				ul.nav.navbar-nav
-					if user
+					if !user
 						li(class=(title == 'Map' ? 'active' : ''))
 							a(href='/') Map
-						//li(class=(title == 'Users' ? 'active' : ''))
-							a(href='/users/userlist') Users
-					if !user
+					if user
 						li(class=(title == 'Register' ? 'active' : ''))
 							a(href='/users/register') Register
 						li(class=(title == 'Login' ? 'active' : ''))
