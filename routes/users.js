@@ -11,16 +11,7 @@ console.log('9. users.js init');
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {
-	User.find({}, function(err, users) {
-		if (err) {
-			console.log(err);
-		}
-		var model = {
-			users: users
-		}
-		res.render('index', model);
-	});
-	res.send('respond with a resource');
+  res.send('respond with a resource');
 });
 
 router.get('/register', function(req, res, next) {
@@ -40,7 +31,7 @@ router.post('/login',
 });
 
 /* List all users 
-router.get('/', function(req, res) {
+router.get('/userlist', function(req, res) {
 	User.find({}, function(err, users) {
 		if (err) {
 			console.log(err);
@@ -48,7 +39,7 @@ router.get('/', function(req, res) {
 		var model = {
 			users: users
 		}
-		res.render('index', model);
+		res.render('userlist', model);
 	});
 });
 */
