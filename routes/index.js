@@ -1,6 +1,8 @@
 var express = require('express');
 var router = express.Router({strict: true});
 
+var User = require('../models/user');
+
 /* GET home page. */
 router.get('/', ensureAuthenticate, function(req, res, next) {
   	User.find({}, function(err, users) {
