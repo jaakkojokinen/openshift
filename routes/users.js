@@ -11,7 +11,16 @@ console.log('9. users.js init');
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {
-  res.send('respond with a resource');
+	User.find({}, function(err, users) {
+		if (err) {
+			console.log(err);
+		}
+		var model = {
+			users: users
+		}
+		res.render('index', model);
+	});
+	res.send('respond with a resource');
 });
 
 router.get('/register', function(req, res, next) {
@@ -30,7 +39,7 @@ router.post('/login',
 		res.redirect('/');
 });
 
-// List all users 
+/* List all users 
 router.get('/', function(req, res) {
 	User.find({}, function(err, users) {
 		if (err) {
@@ -42,6 +51,7 @@ router.get('/', function(req, res) {
 		res.render('index', model);
 	});
 });
+*/
 
 passport.serializeUser(function(user, done) {
   done(null, user.id);
