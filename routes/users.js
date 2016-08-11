@@ -31,7 +31,7 @@ router.post('/login',
 });
 
 // List all users 
-router.get('/userlist', ensureAuthenticate, function(req, res) {
+router.get('/', function(req, res) {
 	User.find({}, function(err, users) {
 		if (err) {
 			console.log(err);
@@ -39,16 +39,9 @@ router.get('/userlist', ensureAuthenticate, function(req, res) {
 		var model = {
 			users: users
 		}
-		res.render('userlist', model);
+		res.render('index', model);
 	});
 });
-
-function ensureAuthenticate(req, res, next){
-	if(req.isAuthenticated()){
-		return next();
-	}
-	res.redirect('/users/login');
-}
 
 passport.serializeUser(function(user, done) {
   done(null, user.id);

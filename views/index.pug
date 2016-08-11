@@ -4,6 +4,11 @@ block content
   h2 food available at the moment
     .section
       .side-bar
+          h2 users
+          ul
+            if users
+              each user in users
+                li= user.username
       #map
         script.
           function initMap() {
