@@ -46,7 +46,7 @@ passport.use(new LocalStrategy(function(username, password, done){
 		if(!user){
 			return done(null, false, {message: 'Unknown User'});
 		}
-
+		console.log('passport control ' + user);
 		User.comparePassword(password, user.password, function(err, isMatch){
 			if(err) return done(err);
 			if(isMatch){
