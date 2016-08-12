@@ -1,8 +1,9 @@
 var mongoose = require('mongoose')
   , Promise = require('bluebird')
-  , mongoose.Promise = require('bluebird')
   , assert = require('assert')
   , bcrypt = require('bcryptjs');
+
+mongoose.Promise = require('bluebird');
 
 // Openshift environmental variables
 var env = process.env
