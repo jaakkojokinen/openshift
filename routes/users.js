@@ -1,9 +1,9 @@
-var express = require('express');
-var router = express.Router({strict: true});
-var multer = require('multer');
-var upload = multer({dest: './uploads'});
-var passport = require('passport');
-var LocalStrategy = require('passport-local').Strategy;
+var express = require('express')
+  , router = express.Router({strict: true})
+  , multer = require('multer')
+  , upload = multer({dest: './uploads'})
+  , passport = require('passport')
+  , LocalStrategy = require('passport-local').Strategy;
 
 var User = require('../models/user');
 
@@ -46,7 +46,8 @@ passport.use(new LocalStrategy(function(username, password, done){
 		if(!user){
 			return done(null, false, {message: 'Unknown User'});
 		}
-		console.log('passport control ' + user);
+		console.log('passport control ' + user.name);
+
 		User.comparePassword(password, user.password, function(err, isMatch){
 			if(err) return done(err);
 			if(isMatch){
@@ -59,12 +60,12 @@ passport.use(new LocalStrategy(function(username, password, done){
 }));
 
 router.post('/register', upload.single('profileimage'), function(req, res, next) {
-	var name = req.body.name;
-	var email = req.body.email;
-	var address = req.body.address;
-	var username = req.body.username;
-	var password = req.body.password;
-	var password2 = req.body.password2;
+	var name = req.body.name
+	  , email = req.body.email
+	  , address = req.body.address
+	  , username = req.body.username
+	  , password = req.body.password
+	  , password2 = req.body.password2;
 
 	console.log(req.body.file);
 
