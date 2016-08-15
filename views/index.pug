@@ -9,6 +9,8 @@ block content
           if users
             each user in users
               li= user.username
+            each user in users
+              li= user.address  
     #map
       script.
         function initMap() {
