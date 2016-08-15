@@ -1,38 +1,38 @@
 doctype html
 html(lang='en')
 	head
-	title= Welcome
-	link(rel='stylesheet', href='/stylesheets/style.css')
-	link(rel='stylesheet', href='/stylesheets/bootstrap.css')
+		title= Welcome
+		link(rel='stylesheet', href='/stylesheets/style.css')
+		link(rel='stylesheet', href='/stylesheets/bootstrap.css')
 	body
-	.navbar.navbar-default(role='navigation')
+		.navbar.navbar-default(role='navigation')
+			.container
+				.navnar-header
+					button.navbar-toggle(type='button', data-toggle='collapse', data-target='.navbar-collapse')
+						span.sr-only Toggle naviggation
+						span.icon-bar
+						span.icon-bar
+						span.icon-bar
+					a.navbar-brand(href='#') overflow
+				.navbar-collapse.collapse
+					ul.nav.navbar-nav
+						if user
+							li(class=(title == 'Members' ? 'active' : ''))
+								a(href='/') Members
+						if !user
+							li(class=(title == 'Register' ? 'active' : ''))
+								a(href='/users/register') Register
+							li(class=(title == 'Login' ? 'active' : ''))
+								a(href='/users/login') Login
+					ul.nav.navbar-nav.navbar-right
+						if user
+							li
+								a(href='/users/logout') Logout
 		.container
-			.navnar-header
-				button.navbar-toggle(type='button', data-toggle='collapse', data-target='.navbar-collapse')
-					span.sr-only Toggle naviggation
-					span.icon-bar
-					span.icon-bar
-					span.icon-bar
-				a.navbar-brand(href='#') overflow
-			.navbar-collapse.collapse
-				ul.nav.navbar-nav
-					if user
-						li(class=(title == 'Map' ? 'active' : ''))
-							a(href='/') Map
-					if !user
-						li(class=(title == 'Register' ? 'active' : ''))
-							a(href='/users/register') Register
-						li(class=(title == 'Login' ? 'active' : ''))
-							a(href='/users/login') Login
-				ul.nav.navbar-nav.navbar-right
-					if user
-						li(class=(title == 'Logout' ? 'active' : ''))
-							a(href='/users/logout') Logout
-	.container
-	!= messages()
-	block content
+			!= messages()
+			block content
 
-	script(src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js')
-	<script src="//cdn.jsdelivr.net/bluebird/3.4.1/bluebird.js"></script>
-	script(src='/javascripts/bootstrap.js')
-	<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDQx6zqrKnlEptqO2WZOnT4iOS7mkzEjwo&callback=initMap"type="text/javascript"></script>
+		script(src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js')
+		script(src="//cdn.jsdelivr.net/bluebird/3.4.1/bluebird.js")
+		script(src='/javascripts/bootstrap.js')
+		script(async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDQx6zqrKnlEptqO2WZOnT4iOS7mkzEjwo&callback=initMap"type="text/javascript")
