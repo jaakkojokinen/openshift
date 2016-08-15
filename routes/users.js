@@ -11,17 +11,7 @@ console.log('9. users.js init');
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {
-	User.find({}, function(err, users) {
-		if (err) {
-			console.log(err);
-		}
-		var model = {
-			title: 'Members',
-			users: users
-		}
-		res.render('index', model);
-	});	
-  //res.send('respond with a resource');
+  res.send('respond with a resource');
 });
 
 router.get('/register', function(req, res, next) {
@@ -36,7 +26,7 @@ router.post('/login',
 	passport.authenticate('local', {failureRedirect:'/users/login', 
 		failureFlash: 'Invalid username and password'}),
 	function(req, res) {
-		req.flash('success', 'Welcome');
+		req.flash('success', 'You are now logged in');
 		res.redirect('/');
 });
 

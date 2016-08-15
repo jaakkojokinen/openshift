@@ -1,11 +1,20 @@
 var express = require('express');
 var router = express.Router({strict: true});
 
-//var User = require('../models/user');
+var User = require('../models/user');
 
 /* GET home page. */
 router.get('/', ensureAuthenticate, function(req, res, next) {
-	res.render('index', { title: 'Members' });
+  	User.find({}, function(err, users) {
+		if (err) {
+			console.log(err);
+		}
+		var model = {
+			title: 'Members',
+			users: users
+		}
+		res.render('index', model);
+	});	
 });
 
 function ensureAuthenticate(req, res, next){
