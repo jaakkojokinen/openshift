@@ -16,16 +16,16 @@ html(lang='en')
 					a.navbar-brand(href='#') overflow
 				.navbar-collapse.collapse
 					ul.nav.navbar-nav
-						if user
+						if users
 							li(class=(title == 'Members' ? 'active' : ''))
 								a(href='/') Members
-						if !user
+						if !users
 							li(class=(title == 'Register' ? 'active' : ''))
 								a(href='/users/register') Register
 							li(class=(title == 'Login' ? 'active' : ''))
 								a(href='/users/login') Login
 					ul.nav.navbar-nav.navbar-right
-						if user
+						if users
 							li
 								a(href='/users/logout') Logout
 	.container
