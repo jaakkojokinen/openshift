@@ -1,5 +1,5 @@
-.container-login {
-	background-image: url(../images/tom.jpg); 
+.container {
+	background-image: url(../images/bg.jpg); 
 }
 
 form {
@@ -19,7 +19,7 @@ li {
 }
 
 li:nth-child(2) {
-	margin-bottom: 4px;
+	margin-bottom: 6px;
 }
 
 .section {
