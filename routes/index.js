@@ -12,7 +12,7 @@ router.get('/', ensureAuthenticate, function(req, res, next) {
 		var model = {
 			users: users
 		}
-		res.render('index', model);
+		res.render('index', model, { title: 'Members' });
 	});	
 });
 
