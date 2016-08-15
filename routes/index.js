@@ -10,9 +10,10 @@ router.get('/', ensureAuthenticate, function(req, res, next) {
 			console.log(err);
 		}
 		var model = {
+			title: 'Members',
 			users: users
 		}
-		res.render('index', model, { title: 'Members' });
+		res.render('index', model);
 	});	
 });
 
