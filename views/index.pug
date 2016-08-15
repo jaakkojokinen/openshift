@@ -9,6 +9,10 @@ block content
           if users
             each user in users
               li= user.username
+              li= user.address
+        h2 locations
+        ul
+          if users        
             each user in users
               li= user.address  
     #map
