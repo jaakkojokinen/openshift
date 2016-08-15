@@ -11,7 +11,17 @@ console.log('9. users.js init');
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {
-  res.send('respond with a resource');
+	User.find({}, function(err, users) {
+		if (err) {
+			console.log(err);
+		}
+		var model = {
+			title: 'Members',
+			users: users
+		}
+		res.render('index', model);
+	});	
+  //res.send('respond with a resource');
 });
 
 router.get('/register', function(req, res, next) {

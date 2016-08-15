@@ -26,10 +26,6 @@ html(lang='en')
 								a(href='/users/register') Register
 							li(class=(title == 'Login' ? 'active' : ''))
 								a(href='/users/login') Login
-					//ul.nav.navbar-nav.navbar-right
-						if user
-							li
-								a(href='/users/logout') Logout
 		.container
 			!= messages()
 			block content
